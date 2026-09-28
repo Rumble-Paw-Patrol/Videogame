@@ -35,7 +35,11 @@
 - Moteur installé : **UE 5.7.4** dans `/Applications/UE_5.7` (37 Go). **UE 5.8 pas encore installé** (mise à jour prévue par l'utilisateur).
 - Ancien projet `~/vs-code/projet-jv/nindo_arena` : **abandonné, aucun lien avec ce projet**, voué à être supprimé. Ne rien en reprendre.
 - Dépôt du projet : `~/vs-code/jeu-video` → GitHub `git@github.com:Rumble-Paw-Patrol/Videogame.git` (branche `main`, Git LFS pour les binaires).
-- Quota Git LFS gratuit GitHub : 10 Go de stockage + 10 Go de bande passante par mois ; au-delà, avec un budget à 0 $, LFS est bloqué jusqu'au mois suivant (pas de facturation). [vérifié 2026-09-28]
+- Limites GitHub Free [vérifié 2026-09-28] :
+  - Git LFS : 10 Gio de stockage (toutes versions de tous les objets, mesuré à l'heure) + 10 Gio de bande passante par mois (téléchargements seulement ; les push ne comptent pas). Tout est décompté sur le **propriétaire du dépôt**, y compris les clones des collaborateurs.
+  - Au-delà : budget à 0 $ → LFS bloqué jusqu'à la fin du mois ; pas de budget → facturation.
+  - Supprimer un fichier LFS **ne libère pas** le stockage : seule solution, supprimer et recréer le dépôt (ou contacter le support).
+  - Taille max d'un fichier LFS : 2 Go. Sans LFS : avertissement au-delà de 50 Mio, refus au-delà de 100 Mio. Dépôt git recommandé < 1 Go (fortement < 5 Go).
 - L'utilisateur prévoit de changer de machine dans les mois qui viennent → mettre à jour cette section.
 
 ## 3. macOS : exigences et limitations (UE 5.8)
@@ -142,3 +146,6 @@ sudo xcode-select -s /Applications/Xcode-26.1.1.app
 - Feuille de route UE6 : https://www.unrealengine.com/news/the-road-to-ue-6
 - Résumé State of Unreal 2026 : https://tech-insider.org/unreal-engine-6-state-of-unreal-2026/
 - Facturation Git LFS GitHub : https://docs.github.com/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage
+- Fichiers volumineux sur GitHub : https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
+- Git LFS (taille max par offre) : https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-git-large-file-storage
+- Supprimer des objets LFS : https://docs.github.com/en/repositories/working-with-files/managing-large-files/removing-files-from-git-large-file-storage
