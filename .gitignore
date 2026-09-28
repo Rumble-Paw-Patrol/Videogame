@@ -1,0 +1,34 @@
+# --- Unreal Engine : fichiers générés (recompilés / régénérés localement) ---
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+
+# Dossier Build : on ne garde que les icônes et listes de pak
+Build/*
+!Build/*/
+Build/*/**
+!Build/**/*.ico
+!Build/*/PakBlacklist*.txt
+
+# --- Projets d'IDE générés par Unreal ---
+*.xcworkspace
+*.xcodeproj
+*.code-workspace
+.vscode/
+.vs/
+.idea/
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+compile_commands.json
+
+# --- Système ---
+.DS_Store
+Thumbs.db
+
+# --- Claude Code : réglages personnels ---
+.claude/settings.local.json
