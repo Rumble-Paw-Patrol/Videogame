@@ -13,13 +13,16 @@
 - [ ] Désinstaller UE 5.7.
 - [ ] GitHub : vérifier que le budget **Git LFS est à 0 $** (Settings → Billing and licensing → Budgets and alerts), pour être bloqué plutôt que facturé en cas de dépassement.
 
-**Côté projet (première session, avec Claude)**
-- [ ] Créer le projet Unreal C++ dans le dépôt.
+**Côté Claude Code (Léonard)**
+- [ ] Installer le plugin d'Epic : `/plugin install unreal-engine-skills-for-claude-code@claude-plugins-official`.
+
+**Première session avec Claude = Phase 0 de `docs/feuille-de-route.md`**
+- [ ] Demander à Léonard le chemin d'installation réel d'UE 5.8.3 et la version d'Xcode active ; mettre à jour les notes Unreal.
+- [ ] Créer `Plugins/CharacterKit` et `Projects/CKSandbox` (voir `architecture.md`), faire compiler.
 - [ ] Editor Preferences → Loading & Saving → **Auto Save toutes les 5 minutes**.
-- [ ] Activer les plugins `ModelContextProtocol` et `AllToolsets` ; activer le démarrage automatique du serveur MCP (`bAutoStartServer`).
-- [ ] Console : `ModelContextProtocol.GenerateClientConfig ClaudeCode` → `.mcp.json` à la racine.
-- [ ] Claude Code : `/plugin install unreal-engine-skills-for-claude-code@claude-plugins-official`.
-- [ ] Valider les commandes de compilation Mac (§7 des notes Unreal) et mettre à jour les chemins réels dans les notes.
+- [ ] Activer les plugins `ModelContextProtocol` et `AllToolsets` ; démarrage automatique du serveur MCP (`bAutoStartServer`).
+- [ ] Console : `ModelContextProtocol.GenerateClientConfig ClaudeCode` → `.mcp.json`, puis relancer Claude Code depuis le dossier du projet.
+- [ ] Valider les commandes de compilation Mac (§7 des notes Unreal) et écrire `scripts/`.
 
 **Plus tard : quand l'ami sous Windows rejoint le projet**
 - [ ] L'ajouter comme collaborateur sur `Videogame`.
@@ -41,3 +44,9 @@
 - **Décisions** : Unreal Engine 5.8 + MCP officiel d'Epic, sur Mac ; C++ d'abord ; aucun outil payant ; SSD externe pour le moteur ; `nindo_arena` abandonné ; tout le travail dans le dépôt `Videogame`.
 - **Fait** : notes Unreal vérifiées (`docs/unreal-engine-notes.md`), `CLAUDE.md`, `.gitignore` / `.gitattributes`, premier push. Dépôt git vide du dossier personnel mis à la corbeille.
 - **Prochaine étape** : définir le périmètre du module (tri de la liste des mécaniques).
+
+### 2026-09-29 — Cadrage du module
+- **Décisions** : toutes les mécaniques seront implémentées, dans l'ordre de `docs/feuille-de-route.md` (priorités fixées par Claude) ; jeux **multijoueur** ; jeux pilotes = arènes 1v1 (shinobi puis sorcier) ; univers inspirés, sans propriété intellectuelle protégée.
+- **Architecture** (`docs/architecture.md`) : plugin `CharacterKit` (préfixe `CK`) partagé par plusieurs projets dans `Projects/` ; CharacterMovementComponent étendu ; GAS avec ASC sur le PlayerState ; serveur d'écoute ; ressource générique « Energy ».
+- **Fait** : `CLAUDE.md` réécrit, `architecture.md`, `feuille-de-route.md`.
+- **Prochaine étape** : Léonard installe UE 5.8.3, Xcode 26.1.1 et le plugin Claude d'Epic → Phase 0.
